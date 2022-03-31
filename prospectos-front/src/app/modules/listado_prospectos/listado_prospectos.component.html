@@ -1,0 +1,37 @@
+<table matSort style="width: 100%;" >
+
+
+  <tr *ngFor="let pro of listaprospectos">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2>Nombre: {{pro.nombreprospecto}}</h2>
+          </mat-panel-title>
+          <mat-panel-title>
+            <h2>Primer Apellido: {{pro.primerapellidoprospecto}}</h2>
+          </mat-panel-title>
+          <mat-panel-title>
+            <h2>Segundo Apellido: {{pro.segundoapellidoprospecto}}</h2>
+          </mat-panel-title>
+          <mat-panel-title>
+            <h2 style="color:rgb(89, 204, 104)" *ngIf="pro.estatusprospecto=='aceptado'">{{pro.estatusprospecto}}</h2><h2 style="color:rgb(202, 64, 64)" *ngIf="pro.estatusprospecto=='rechazada'">{{pro.estatusprospecto}}</h2><h2 style="color:rgb(224, 226, 82)" *ngIf="pro.estatusprospecto=='enviado'">{{pro.estatusprospecto}}</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <h2>Calle: {{pro.calleprospecto}}</h2>
+          <h2>Numero: {{pro.numeroprospecto}}</h2>
+          <h2>Colonia: {{pro.coloniaprospecto}}</h2>
+          <h2>Codigo Postal: {{pro.codigopostalprospecto}}</h2>
+          <h2>Calle: {{pro.calleprospecto}}</h2>
+          <h2>Telefono: {{pro.telefonoprospecto}}</h2>
+          <h2>RFC: {{pro.rfcprospecto}}</h2>
+          <h2>Descripcion: {{pro.descripcionprospecto}}</h2>
+          <h2>Documentos:</h2>
+          <p *ngFor="let itema of arch">
+            <mat-card-subtitle *ngIf="itema.idre==pro.id">
+            <a href="{{itema.url}}">{{itema.doc}}</a>
+            </mat-card-subtitle>
+          </p>      </mat-expansion-panel>
+    </mat-accordion>
+
+

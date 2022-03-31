@@ -1,0 +1,93 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="formulario">
+  <mat-form-field appearance="fill" class="pantallacom">
+    <mat-label>Nombre del Prospecto</mat-label>
+    <input type="text" name="nombre" matInput ngModel required #nombre="ngModel" placeholder="Ej.Angel de Jesus">
+  </mat-form-field>
+  <table class="pantallacom" cellPadding="0"><tr>
+  <td>
+    <mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>Primer Apellido</mat-label>
+    <input type="text" name="apellido1" matInput ngModel required #apellido1="ngModel" placeholder="Ej. Anguiano">
+  </mat-form-field></td>
+  <td>
+  <mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>Segundo Apellido</mat-label>
+    <input type="text"name="apellido2" matInput ngModel placeholder="Segundo Apellido" placeholder="Ej. Camacho">
+  </mat-form-field>
+  </td>
+</tr>
+</table>
+<table class="pantallacom"><tr>
+  <td><mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>Calle</mat-label>
+    <input type="text" name="calle" matInput ngModel required #calle="ngModel" placeholder="Ej.blvd ernesto garcia">
+  </mat-form-field></td>
+  <td>
+    <mat-form-field appearance="fill"class="pantallacom">
+      <mat-label>Numero</mat-label>
+      <input type="text" maxlength="10" name="numero" matInput ngModel required #numero="ngModel" placeholder="Ej.823">
+    </mat-form-field>
+
+  </td>
+  <td>
+    <mat-form-field appearance="fill"class="pantallacom">
+      <mat-label>Colonia</mat-label>
+      <input type="text" name="colonia" matInput ngModel required #colonia="ngModel" placeholder="Ej.colonia jiquilpan">
+    </mat-form-field>
+  </td>
+</tr></table>
+
+  <mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>Codigo Postal</mat-label>
+    <input type="text" #codpos="ngModel"maxlength="5"name="codpos" matInput ngModel required  placeholder="Ej. 34654">
+    <mat-hint class="end">{{codpos.value.length}} / 5</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>Telefono</mat-label>
+    <input type="tel" name="telefono" maxlength="10" matInput ngModel required #telefono="ngModel" placeholder="Ej. 668-2501189">
+  </mat-form-field>
+  <mat-form-field appearance="fill"class="pantallacom">
+    <mat-label>RFC</mat-label>
+    <input type="text" name="rfc" maxlength="13" matInput ngModel required #rfc="ngModel" placeholder="AUCA980720XXX">
+  </mat-form-field>
+  <div id="wrap">
+
+    <div id="box2">
+        <button id="selectButton" mat-fab aria-label="Agregar Archivos" (click)="fileInput.click()">          <mat-icon>add</mat-icon>
+        </button>
+
+        <input #fileInput type="file" hidden multiple (change)="selectFiles($event)" />
+        <span *ngIf="fileName">{{fileName}}</span>
+
+        <button id="uploadButton" mat-raised-button *ngIf="selectedFiles"  (click)="uploadFiles()">
+            Subir Archivos
+        </button>
+    </div>
+
+    <div id="box3">
+        <span><h4>{{message}}</h4></span>
+    </div>
+
+
+    <div id="box4">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Lista de Archivos</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <ul>
+                    <li *ngFor="let file of fileInfos | async">
+                        <a href="{{file.url}}">{{file.name}}</a>
+                        <mat-icon (click)="deleteFiles(file.name)">delete</mat-icon>
+                    </li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+  <div>&nbsp;</div>
+  <button mat-raised-button color="primary"  class="pantallacom">Registrar Prospecto</button>
+</form>
+
+
+

@@ -1,0 +1,56 @@
+
+.formulario {
+  min-width: 100%;
+  max-width: 100%;
+  width: 50%;
+  text-align: center;
+}
+.pantallacom{
+  width: 100%;
+}
+.contenedor{
+  min-width: 50%;
+  max-width: 50%;
+  width: 50%;
+  text-align: center;
+}
+.end{
+  align-items: flex-end;
+}
+
+#box1 span{
+  margin-left: 10px;
+}
+
+#box2 span{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#box2 #selectButton{
+  background-color: rgb(94, 214, 94);
+}
+
+#box2 #uploadButton{
+  background-color: rgb(112, 185, 219);
+}
+
+#box3{
+  color: rgb(158, 26, 26);
+}
+
+#box4 ul{
+list-style: none;
+}
+
+#box4 ul li{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+#box4 ul li a{
+text-decoration: none;
+color:black;
+margin-right: 20px;
+}

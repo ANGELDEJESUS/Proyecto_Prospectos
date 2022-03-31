@@ -1,0 +1,144 @@
+<p *ngFor="let item of listaprospectos" style="text-size-adjust:initial;">
+<mat-card *ngIf="item.estatusprospecto=='enviado'">
+  <mat-card-title>Prospecto</mat-card-title>
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Nombre</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.nombreprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Primer Apellido</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.primerapellidoprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Segundo Apellido</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.segundoapellidoprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Calle</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.calleprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Numero</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.numeroprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Colonia</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.coloniaprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Codigo Postal</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.codigopostalprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>Telefono</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.telefonoprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-card-subtitle style="color: black">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label style="color: black"><h2>RFC</h2></mat-label>
+      <p></p>
+      <textarea matInput disabled aria-multiline="true">{{item.rfcprospecto}}</textarea>
+    </mat-form-field></mat-card-subtitle
+  >
+  <mat-label style="color: black"><h3>Documentos</h3></mat-label>
+  <p *ngFor="let itema of arch">
+    <mat-card-subtitle *ngIf="itema.idre==item.id">
+    <a href="{{itema.url}}">{{itema.doc}}</a>
+    </mat-card-subtitle>
+  </p>
+
+  <mat-form-field
+    class="example-full-width"
+    appearance="fill"
+    style="width: 100%"
+  >
+    <mat-label><h2>Descripcion</h2></mat-label>
+    <p></p>
+    <textarea
+      matInput
+      name="descripcion"
+      #descripcion
+      placeholder="Ej. los documentos no son correctos favor de revisar"
+    ></textarea>
+  </mat-form-field>
+  <mat-card-actions>
+    <button
+      mat-flat-button
+      color="primary"
+      style="background-color: green; width: 50%"
+      (click)="actualizar(item.id,item.nombreprospecto,item.primerapellidoprospecto,item.segundoapellidoprospecto,item.calleprospecto,item.numeroprospecto,item.coloniaprospecto,item.codigopostalprospecto,item.telefonoprospecto,item.rfcprospecto,'aceptado',descripcion.value)"
+      >
+      Aceptar
+    </button>
+    <button mat-flat-button color="warn"       (click)="actualizar(item.id,item.nombreprospecto,item.primerapellidoprospecto,item.segundoapellidoprospecto,item.calleprospecto,item.numeroprospecto,item.coloniaprospecto,item.codigopostalprospecto,item.telefonoprospecto,item.rfcprospecto,'rechazada',descripcion.value)"
+    style="width: 50%">Rechazar</button>
+  </mat-card-actions>
+</mat-card>
+</p>
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
